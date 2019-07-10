@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,28 +7,29 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
+
   public imagePath;
   imgURL: any;
   public message: string;
   url = '';
  
-  preview(files) {
-    if (files.length === 0)
-      return;
+  // preview(files) {
+  //   if (files.length === 0)
+  //     return;
+    
+  //   var mimeType = files[0].type;
+  //   if (mimeType.match(/image\/*/) == null) {
+  //     this.message = "Only images are supported.";
+  //     return;
+  //   }
  
-    var mimeType = files[0].type;
-    if (mimeType.match(/image\/*/) == null) {
-      this.message = "Only images are supported.";
-      return;
-    }
- 
-    var reader = new FileReader();
-    this.imagePath = files;
-    reader.readAsDataURL(files[0]); 
-    reader.onload = (_event) => { 
-      this.imgURL = reader.result; 
-    }
-  }
+  //   var reader = new FileReader();
+  //   this.imagePath = files;
+  //   reader.readAsDataURL(files[0]); 
+  //   reader.onload = (_event) => { 
+  //     this.imgURL = reader.result; 
+  //   }
+  // }
 
     onSelectFile(event) {
       if (event.target.files && event.target.files[0]) {
@@ -41,4 +42,15 @@ export class AppComponent {
         }
       }
     }
+
+    // constructor(){
+    //   //  setInterval(() => { console.log(this.image1)},3000);
+    // }
+    // getImage(event){
+    //     console.log(event);
+    //     console.log(event.target.files);
+    //     console.log(event.target.result);
+    // }
+
+    
 }
